@@ -1,0 +1,42 @@
+# Blender 3.3.0 MTL File: 'Byekorf.blend'
+# www.blender.org
+
+newmtl BroodCase-Inside
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:/Users/Pampoen Koekie/Documents/PROJEKTE/Webblaaie/Infinity Bees/Advertensie/Downloads/Beehive Texture.jpg
+
+newmtl BroodCase-Outside
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:/Users/Pampoen Koekie/Documents/PROJEKTE/Webblaaie/Infinity Bees/Advertensie/Downloads/Wood.jpg
+
+newmtl Lid
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:/Users/Pampoen Koekie/Documents/PROJEKTE/Webblaaie/Infinity Bees/Advertensie/Downloads/Beehive Texture.jpg
+
+newmtl Super
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:/Users/Pampoen Koekie/Documents/PROJEKTE/Webblaaie/Infinity Bees/Advertensie/Downloads/Beehive Texture.jpg

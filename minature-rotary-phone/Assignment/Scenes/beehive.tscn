@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnvr1sn8tjeit"]
+
+[ext_resource type="Texture2D" uid="uid://bvin5ee2h4mij" path="res://Assignment/Assets/Trunk_4_Cartoon.jpg" id="1_4txyg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n7qbg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exeoc"]
+albedo_color = Color(1, 0.772549, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh2qt"]
+albedo_color = Color(0.0392157, 0.0901961, 0.0941176, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b3t5q"]
+material = SubResource("StandardMaterial3D_sh2qt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv5ll"]
+albedo_texture = ExtResource("1_4txyg")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2lcst"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4txyg"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(1.15, 0, 0, 0, 0.7, 0, 0, 0, 1.15, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_n7qbg")
+surface_material_override/0 = SubResource("StandardMaterial3D_exeoc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.22, 0, 0, 0, -2.18557e-08, -0.3, 0, 0.5, -1.31134e-08, -0.00460466, -0.220369, 0)
+mesh = SubResource("CylinderMesh_b3t5q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.144236, 0.0823641, 0, -0.041182, 0.288472, 0, 0, 0, 0.15, 0.131505, 1.1025, 0.00567322)
+material_override = SubResource("StandardMaterial3D_yv5ll")
+mesh = SubResource("CylinderMesh_2lcst")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["beehive"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00417004, 0, 0.0010704)
+shape = SubResource("CapsuleShape3D_4txyg")

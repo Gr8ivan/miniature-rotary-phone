@@ -6,6 +6,10 @@ class_name Boid extends CharacterBody3D
 @export var vel = Vector3.ZERO
 @export var speed:float
 @export var max_speed: float = 10.0
+@export var bounds_size: Vector3 = Vector3(2.5, 2.5, 2.5)
+@export var boundary_force := 2.0
+
+@onready var BeeScene : PackedScene = preload("res://Assignment/Scenes/bee.tscn")
 
 var behaviors = [] 
 @export var max_force = 10
@@ -189,9 +193,59 @@ func _physics_process(delta):
 			vel -= vel * delta * damping
 			
 			set_velocity(vel)
+			
+			# Apply garden boundary force
+			if abs(global_position.x) > bounds_size.x or abs(global_position.z) > bounds_size.z:
+				var to_center = (Vector3.ZERO - global_position).normalized()
+				velocity += to_center * boundary_force
+
 			move_and_slide()
 			
 			# Implement Banking as described:
 			# https://www.cs.toronto.edu/~dt/siggraph97-course/cwr87/
 			var temp_up = global_transform.basis.y.lerp(Vector3.UP + (acceleration * banking), delta * 5.0)
 			look_at(global_transform.origin - vel.normalized(), temp_up)
+
+var is_chasing: bool = false
+
+func _on_detection_body_entered(body: Node3D) -> void:
+	if self.is_in_group("Bee"):
+		if is_chasing:
+				return
+		var NoiseWander_behaviour = find_child("NoiseWander")
+		var arrive_behaviour = find_child("Arrive")
+		var seek_behaviour = find_child("Seek")
+		if body.is_in_group("sunflower"):
+			print("near sunflower")
+			is_chasing = true
+			seek_behaviour.target = body
+			seek_behaviour.enabled = true
+			arrive_behaviour.target = body
+			arrive_behaviour.enabled = false
+		if body.is_in_group("beehive"):
+			print("near beehive")
+			is_chasing = true
+			seek_behaviour.target = body
+			seek_behaviour.enabled = true
+			arrive_behaviour.target = body
+			arrive_behaviour.enabled = false
+			
+			var new_bee = BeeScene.instantiate()
+			get_tree().get_current_scene().add_child(new_bee)
+			new_bee.global_transform.origin = body.global_transform.origin
+			new_bee.is_chasing = true
+		var t = get_node("SeekTimeoutTimer") as Timer
+		t.stop()
+		t.start()
+		pass # Replace with function body.
+
+
+func _on_SeekTimeoutTimer_timeout() -> void:
+	var NoiseWander_behaviour = find_child("NoiseWander")
+	var arrive_behaviour = find_child("Arrive")
+	var seek_behaviour = find_child("Seek")
+	seek_behaviour.enabled = false
+
+
+func _on_detection_body_exited(body: Node3D) -> void:
+	is_chasing = false

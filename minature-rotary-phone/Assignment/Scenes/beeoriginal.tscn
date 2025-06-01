@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlte05spl8ae7"]
+
+[ext_resource type="PackedScene" uid="uid://du8hhtl7xv5xe" path="res://Assignment/Assets/Bee.fbx" id="1_7x874"]
+[ext_resource type="AudioStream" uid="uid://x86o85e3heke" path="res://Assignment/Assets/butterflyflap.mp3" id="2_3puwj"]
+[ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="2_848rw"]
+[ext_resource type="Script" uid="uid://bqb47mif0r5vt" path="res://behaviors/noise_wander.gd" id="3_0ab3r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7x874"]
+albedo_color = Color(1, 0.701961, 0.282353, 1)
+
+[sub_resource type="Animation" id="Animation_3puwj"]
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.651353, 0.31257, -0.319124), Vector3(0.657989, -0.534071, -1.6057)]
+}
+
+[sub_resource type="Animation" id="Animation_7x874"]
+resource_name = "flap"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.651353, 0.31257, -0.319124), Vector3(0.647517, -0.331613, -1.29329)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ab3r"]
+_data = {
+&"RESET": SubResource("Animation_3puwj"),
+&"flap": SubResource("Animation_7x874")
+}
+
+[node name="Bee" instance=ExtResource("1_7x874")]
+script = ExtResource("2_848rw")
+
+[node name="Cube_002" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_7x874")
+
+[node name="Plane" parent="." index="3"]
+transform = Transform3D(84.5014, 47.555, 24.4548, -24.9502, 75.5112, -60.6263, -47.2969, 45.1286, 75.6731, -0.311109, 0.392249, 0.132996)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+libraries = {
+&"": SubResource("AnimationLibrary_0ab3r")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="10"]
+stream = ExtResource("2_3puwj")
+volume_db = -20.263
+autoplay = true
+
+[node name="NoiseWander" type="Node" parent="." index="11"]
+script = ExtResource("3_0ab3r")
+metadata/_custom_type_script = "uid://bqb47mif0r5vt"

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://sds5ivwlvjtk"]
+
+[ext_resource type="PackedScene" uid="uid://dk1rb876iu4r0" path="res://Assignment/Assets/fences.glb" id="1_ge638"]
+
+[node name="uploads_files_3341796_Fences" instance=ExtResource("1_ge638")]
+
+[node name="FenceType_8_001" parent="." index="32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1454, 0, -0.387646)
+
+[node name="FenceType_1_001" parent="." index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57284, 0, -5.65984)
+
+[node name="FenceType_2_001" parent="." index="34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8624, 0, -5.62197)
+
+[node name="FenceType_6_001" parent="." index="35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90235, 0, -5.64783)
+
+[node name="Beam_002" parent="." index="36"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88211, 0, -0.409726)
+
+[node name="DoorType_1_001" parent="." index="37"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09285, 0.993212, -0.403997)
+
+[node name="FenceType_12_001" parent="." index="38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25981, 0, -0.372276)
+
+[node name="FenceType_7_001" parent="." index="39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8301, 0, -3.01385)
+
+[node name="FenceType_2_002" parent="." index="40"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88854, 0, -2.02807)
+
+[node name="FenceType_12_002" parent="." index="41"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8428, 0, -0.322472)
+
+[node name="FenceType_4_001" parent="." index="42"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93538, 0, -0.381886)
+
+[node name="FenceType_10_001" parent="." index="43"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0431, 1.11281, -0.370806)
+
+[node name="FenceType_3_001" parent="." index="44"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5717, 1.12285, -0.383083)

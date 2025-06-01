@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4gg2ybrf4my"]
+
+[ext_resource type="PackedScene" uid="uid://dypsuh3d5raln" path="res://Assignment/Assets/tree.fbx" id="1_vks8j"]
+
+[node name="uploads_files_930576_CartoonTree" instance=ExtResource("1_vks8j")]

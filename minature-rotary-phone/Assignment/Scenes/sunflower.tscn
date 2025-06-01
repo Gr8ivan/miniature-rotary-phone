@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://co82v7qy4l0sx"]
+
+[ext_resource type="PackedScene" uid="uid://bph2qvwmg6ebp" path="res://Assignment/Assets/sunflower.glb" id="1_oiv3v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qjrhp"]
+radius = 0.215707
+
+[node name="Sketchfab_Scene" groups=["sunflower"] instance=ExtResource("1_oiv3v")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" groups=["sunflower"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785385, 1.21712, -0.409327)
+shape = SubResource("SphereShape3D_qjrhp")
